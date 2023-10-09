@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.jscompany.tp01_todo_list'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.jscompany.tp01_todo_list"
+        minSdk 29
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    testImplementation "org.mockito:mockito-inline:3.4.0"
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
+
+    // koin DI
+    // Koin
+    implementation "io.insert-koin:koin-core:3.1.6"
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-android:3.1.6"
+    // No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
+
+    // Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:3.1.6"
+    // Jetpack WorkManager
+    implementation "io.insert-koin:koin-androidx-workmanager:3.1.6"
+    // Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:3.1.6"
+    // Jetpack Compose
+    implementation "io.insert-koin:koin-androidx-compose:3.1.6"
+
+    // Koin Unit Test
+    testImplementation "io.insert-koin:koin-test:3.1.6"
+    testImplementation "io.insert-koin:koin-test-junit4:3.1.6"
+
+    //코루틴
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+
+    //라이브데이터
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
+
+    //뷰모델
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
+
+    //라이브사이클 익스텐션
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+}
